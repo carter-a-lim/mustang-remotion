@@ -1,0 +1,15 @@
+{
+  "name": "mustang-remotion",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "render:reel": "remotion render src/index.ts Reel15 out/reel15.mp4 --props=./props/reel15.json",
+    "render:demo": "remotion render src/index.ts Demo30 out/demo30.mp4 --props=./props/demo30.json"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.340"
+  }
+}

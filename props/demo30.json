@@ -1,0 +1,7 @@
+{
+  "url": "mustag-market.com",
+  "steps": ["Upload photo", "Set price", "Post listing"],
+  "benefits": ["Student-focused", "Quick listing", "Campus local"],
+  "cta": "Start browsing today",
+  "accentColor": "#00C853"
+}
