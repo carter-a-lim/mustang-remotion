@@ -28,6 +28,15 @@ const AmbientBackground: React.FC<{accentColor: string}> = ({accentColor}) => {
       <div
         style={{
           position: 'absolute',
+          inset: 0,
+          backgroundImage:
+            'repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px)',
+          mixBlendMode: 'soft-light',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
           top: -260 + driftA,
           left: -160,
           width: 720,
@@ -125,9 +134,15 @@ const DeviceStrip: React.FC<{items: string[]; accentColor: string}> = ({items, a
 };
 
 export const Reel15: React.FC<ReelProps> = ({brandName, url, hook, categories, cta, accentColor}) => {
+  const frame = useCurrentFrame();
+  const topBar = interpolate(frame, [0, 20], [-120, 0], {extrapolateRight: 'clamp'});
+  const bottomBar = interpolate(frame, [0, 20], [120, 0], {extrapolateRight: 'clamp'});
+
   return (
     <AbsoluteFill>
       <AmbientBackground accentColor={accentColor} />
+      <div style={{position: 'absolute', top: topBar, left: 0, right: 0, height: 90, background: '#000'}} />
+      <div style={{position: 'absolute', bottom: bottomBar, left: 0, right: 0, height: 90, background: '#000'}} />
 
       <Sequence from={0} durationInFrames={85}>
         <GlassCard title={hook} subtitle={brandName} accentColor={accentColor} />
